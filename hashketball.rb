@@ -288,6 +288,8 @@ end
 def long_name_steals_a_ton?
   longest = 0
   long_player = ""
+  most = 0
+  player = ""
   game_hash.each do |key, values|
       game_hash[key][:players].each do |element|
         element.each do |names, info|
@@ -295,21 +297,25 @@ def long_name_steals_a_ton?
             longest = names.length
             long_player = names
           end
-        end
-      end
-  end
-  most = 0
-  player = ""
-  game_hash.each do |key, values|
-      game_hash[key][:players].each do |element|
-        element.each do |names, info|
-          if info[:steals] > most
+           if info[:steals] > most
             most = info[:steals]
             player = names
-          end
+           end
         end
       end
   end
+  # most = 0
+  # player = ""
+  # game_hash.each do |key, values|
+  #     game_hash[key][:players].each do |element|
+  #       element.each do |names, info|
+  #         if info[:steals] > most
+  #           most = info[:steals]
+  #           player = names
+  #         end
+  #       end
+  #     end
+  # end
   
   return long_player == player
 end
