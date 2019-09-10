@@ -270,7 +270,7 @@ end
 
 def player_with_longest_name
   longest = 0
-  long_player = 0
+  long_player = ""
   game_hash.each do |key, values|
       game_hash[key][:players].each do |element|
         element.each do |names, info|
