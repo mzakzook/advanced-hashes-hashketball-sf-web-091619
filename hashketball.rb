@@ -244,3 +244,12 @@ def most_points_scored
   end
   player
 end
+
+def winning_team
+  home_points = 0
+  away_points = 0
+  game_hash[:home][:players].each do |element|
+    element.each do |names, info|
+        home_points += info[:points]
+    end
+  end
