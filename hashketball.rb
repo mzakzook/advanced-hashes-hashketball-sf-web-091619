@@ -253,3 +253,16 @@ def winning_team
         home_points += info[:points]
     end
   end
+  game_hash[:away][:players].each do |element|
+    element.each do |names, info|
+        away_points += info[:points]
+    end
+  end
+  if home_points > away_points
+    return game_hash[:home][:team_name]
+  elsif away_points > home_points
+    return game_hash[:away][:team_name]
+  else
+    return "Tie Game"
+  end
+end
