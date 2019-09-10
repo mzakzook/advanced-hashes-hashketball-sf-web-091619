@@ -266,3 +266,20 @@ def winning_team
     return "Tie Game"
   end
 end
+
+
+def player_with_longest_name
+  longest = 0
+  long_player = 0
+  game_hash.each do |key, values|
+      game_hash[key][:players].each do |element|
+        element.each do |names, info|
+          if names.length > longest
+            longest = names.length
+            long_player = names
+          end
+        end
+      end
+  end
+  long_player
+end
